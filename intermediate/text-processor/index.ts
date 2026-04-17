@@ -112,6 +112,7 @@ export const handler = async (inputText: string) => {
     .addNode("negativeResponse", negativeResponseNode)
     .addNode("positiveResponse", positiveResponseNode)
     .addEdge(START, "processor")
+    .addEdge("processor", "categorize")
     .addConditionalEdges("categorize", categorizeRouter, [
       "negativeResponse",
       "positiveResponse",
